@@ -10,7 +10,7 @@ import os  # To access environment variable for API key
 # Function to set up the OpenAI client
 # (API Key should be set as an environment variable for security reasons)
 def setup_openai_client():
-    openai.api_key = 'XXXXXXXX'  # Replace 'your-api-key-here' with your actual OpenAI API key
+    openai.api_key = 'XXXXXXXXXXXXXXX'  # Replace 'your-api-key-here' with your actual OpenAI API key
     return openai
 
 
@@ -36,10 +36,6 @@ def create_document_structure(openai_client, document, structure, user_input):
         else:  # If no subsections, generate content for the main section
             content = generate_text_for_section(openai_client, section, user_input)
             document.add_paragraph(content)
-
-# Check if the API key environment variable is set
-if 'OPENAI_API_KEY' not in os.environ:
-    raise EnvironmentError("The environment variable 'OPENAI_API_KEY' must be set with your OpenAI API key.")
 
 # Proceed with the script only if it's the main module
 if __name__ == "__main__":
